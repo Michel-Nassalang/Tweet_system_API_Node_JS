@@ -5,6 +5,7 @@ var apiRouter = require('./apiRouter').router;
 
 // Initialisations
 var server = express();
+global.__basedir = __dirname;
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());

@@ -8,7 +8,7 @@ module.exports = {
         var headerAuth = req.headers['authorization'];
         var userId = jwtUtils.getUserId(headerAuth);
 
-        var messageId = parseInt(req.query.messageId);
+        var messageId = parseInt(req.params.messageId);
 
         if (userId < 0) {
             return res.status(400).json({ 'error': 'Aucune session d\'utilisateur' });
@@ -90,7 +90,7 @@ module.exports = {
         var headerAuth = req.headers['authorization'];
         var userId = jwtUtils.getUserId(headerAuth);
 
-        var messageId = parseInt(req.query.messageId);
+        var messageId = parseInt(req.params.messageId);
 
         if (userId < 0) {
             return res.status(400).json({ 'error': 'Aucune session d\'utilisateur' });
