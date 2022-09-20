@@ -6,7 +6,7 @@ var fs = require('fs');
 
 const upload = async function(req, res) {
     try {
-        await uploadFile(req, res);
+        await uploadFile.uploadProfilMiddleware(req, res);
         if(req.file == undefined){
             return res.status(400).send({'error': 'Fichier non chargé'});
         }else{
@@ -15,7 +15,10 @@ const upload = async function(req, res) {
     } catch (err) {
         if(err.code == "LIMIT_FILE_SIZE"){
             return res.status(500).send({'error': 'Impossible de transferer un fichier de plus de 2MB'});
-        }else{
+        }else if (err == "ERROR_TYPE_FILE") {
+            return res.status(500).send({ 'error': 'Type de fichier non accepté' });
+        }
+        else{
             return res.status(500).send({ 'error': 'Impossible de transférer le fichier' });
         }
     }
@@ -85,7 +88,6 @@ const listFiles = function (req, res) {
             return res.status(401).send({ 'error': 'Autorisation non accordée' });
         }
     }).catch(function (err) {
-        console.log(err);
         return res.status(400).send({ 'error': 'Accès interdit' });
     });
 }

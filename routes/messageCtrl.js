@@ -1,6 +1,6 @@
 var jwtUtils = require('../utils/jwt.utils');
 var asyncLib = require('async');
-var models = require('../models');
+var models = require('../models'); 
 
 module.exports = {
     createMessage: function(req, res){
@@ -38,10 +38,10 @@ module.exports = {
                         content: content,
                         like: 0,
                         UserId: user.id
-                    }).then(function(newMessage){
+                    }).then(function (newMessage) {
                         done(newMessage);
-                    }).catch(function(err){
-                        return res.status(500).json({'error': 'Message impossible à envoyer'});
+                    }).catch(function (err) {
+                        return res.status(500).json({ 'error': 'Message impossible à envoyer' });
                     });
                 }else{
                     return res.status(404).json({ 'error': 'Utilisateur non trouvé'});
@@ -209,7 +209,6 @@ module.exports = {
                 }).then(function(likes){
                     done(null, likes, message);
                 }).catch(function(err){
-                    console.log(err);
                     return res.status(500).json({'error': 'Impossible de trouver les réactions à ce message'});
                 });
             },

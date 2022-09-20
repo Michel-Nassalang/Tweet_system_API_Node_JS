@@ -23,7 +23,6 @@ module.exports = {
                 }).then(function (message){
                     done(null, message);
                 }).catch(function (err) {
-                    console.log(err);
                     return res.status(400).json({ 'error': 'Message non trouvé...'});
                 });
             },
@@ -72,7 +71,6 @@ module.exports = {
                 }).then(function(){
                     done(message);
                 }).catch(function(err){
-                    console.log(err);
                     return res.status(500).json({ 'error':'Impossible de liker le message'});
                 })
             }
@@ -105,7 +103,6 @@ module.exports = {
                 }).then(function (message) {
                     done(null, message);
                 }).catch(function (err) {
-                    console.log(err);
                     return res.status(400).json({ 'error': 'Message non trouvé...' });
                 });
             },
@@ -144,7 +141,6 @@ module.exports = {
                         .then(function (isNotLikeAct) {
                             done(null, message, isNotLikeAct);
                         }).catch(function (err) {
-                            console.log(err);
                             return res.status(500).json({ 'error': 'Réaction impossible...' });
                         });
                 } else {
@@ -157,7 +153,6 @@ module.exports = {
                 }).then(function () {
                     done(message);
                 }).catch(function (err) {
-                    console.log(err);
                     return res.status(500).json({ 'error': 'Impossible de disliker le message' });
                 })
             }
