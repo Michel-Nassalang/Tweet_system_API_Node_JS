@@ -12,9 +12,13 @@ exports.router = (function(){
     apiRouter.route('/users/login/').post(userCtrl.login);
     apiRouter.route('/users/compte/').get(userCtrl.getUserProfile);
     apiRouter.route('/users/update/').put(userCtrl.updateUserProfile);
+    apiRouter.route('/users/updateprofil').put(fileCtrl.uploadProfil, userCtrl.updatePhotoProfil);
+    apiRouter.route('/users/updatepassword').put(userCtrl.updatePassword);
+    apiRouter.route('/users/resetpassword').post(userCtrl.resetPassword);
+    apiRouter.route('/users/searchusers').get(userCtrl.searchUsers);
     
     // Messages routes
-    apiRouter.route('/messages/post/').post(messageCtrl.createMessage);
+    apiRouter.route('/messages/post/').post(fileCtrl.uploadForMessage, messageCtrl.createMessage);
     apiRouter.route('/messages/list/').get(messageCtrl.listMessages);
     apiRouter.route('/messages/:messageId/delete/').delete(messageCtrl.deleteMessage);
     apiRouter.route('/messages/user/:user').get(messageCtrl.listMessagesForUser);

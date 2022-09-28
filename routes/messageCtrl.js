@@ -36,6 +36,7 @@ module.exports = {
                     models.Message.create({
                         title: title,
                         content: content,
+                        compenant: (req.file ? req.file.path : null),
                         like: 0,
                         UserId: user.id
                     }).then(function (newMessage) {

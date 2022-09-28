@@ -20,6 +20,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      pp: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       bio: {
         allowNull: true,
         type: Sequelize.STRING

@@ -30,5 +30,15 @@ module.exports = {
             }
         }
         return userId;
+    },
+    generateTokenForPassword: function (userData, expireTime) {
+        return jwt.sign({
+            userId: userData.id,
+            email: userData.email
+        },
+            JWT_SIGN_SECRET,
+            {
+                expiresIn: expireTime
+            })
     }
 }
