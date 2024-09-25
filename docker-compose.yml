@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+###> doctrine/doctrine-bundle ###
+  db:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    container_name: tweet_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: tweet_db
+      MYSQL_USER: usermind
+      MYSQL_PASSWORD: tweetsystem
+    networks:
+      - tweet_system
+
+networks:
+  tweet_system:
