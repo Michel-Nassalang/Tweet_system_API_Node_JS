@@ -2,11 +2,11 @@
 
 ## Lancement de l'API
 On tape les commandes:
-        docker-compose up -d
-        npm install
-        npm run start
-
-
+```
+    docker-compose up -d
+    npm install
+    npm run start
+```
 
 ## Fonctionnalités du système
 Authentification avec Oauth2
