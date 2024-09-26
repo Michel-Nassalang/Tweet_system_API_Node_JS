@@ -5,6 +5,7 @@ On tape les commandes:
 ```
     docker-compose up -d
     npm install
+    npx sequelize-cli db:migrate
     npm run start
 ```
 
